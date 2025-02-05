@@ -1,0 +1,91 @@
+**Task Manager Project Writeup**
+
+## **Problem Statement**
+In today's fast-paced world, individuals often struggle to keep track of their tasks efficiently. Many people manage multiple responsibilities and require a structured system to record, organize, and track their tasks. The absence of a well-defined task management system leads to inefficiency, missed deadlines, and a lack of organization.
+
+The goal of this project is to develop a **Task Manager** application that allows users to manage their daily tasks effectively. To ensure privacy and security, the system will include **user authentication**, ensuring that only authorized users can access and modify their tasks. Each user will have a separate record of tasks, which they can create, view, update, and delete as needed.
+
+---
+
+## **Project Description**
+The **Task Manager** is a menu-driven application that provides a structured way for users to manage their tasks. The system will include the following functionalities:
+
+1. **User Authentication System**
+   - Users must **register** with a username and password.
+   - Users can **log in** using their credentials.
+   - Only authenticated users can access their tasks.
+
+2. **Task Management System**
+   - Users can **add** new tasks.
+   - Users can **view** their task list.
+   - Users can **mark tasks as completed**.
+   - Users can **delete** tasks they no longer need.
+
+3. **Data Persistence Using File Handling**
+   - User credentials and tasks will be stored using **file handling**.
+   - Each user will have their **own separate task list**, ensuring privacy.
+   - The system will **load and save data** persistently across sessions.
+
+4. **Interactive Menu-Driven Interface**
+   - A simple **text-based menu** will allow users to navigate the system.
+   - The program will prompt users with options for **task management and authentication**.
+   - Users will receive error messages for invalid inputs and feedback for successful actions.
+
+---
+
+## **Technical Implementation**
+- **Programming Language**: Python
+- **Modules Used**: File handling (JSON, OS), Input handling
+- **Project Structure**:
+  ```
+  first_project/
+  │── first_project/
+  │   │── __init__.py
+  │   │── TaskApp.py
+  │   │── User.py
+  │   │── TaskManager.py
+  │   │── Task.py
+  │── setup.py
+  │── requirements.txt
+  ```
+- **Installation and Execution**:
+  1. Install the package using `pip install -e .`
+  2. Run the program using `first_project_run`
+
+---
+
+## **Challenges and Solutions**
+
+### **1. Module Import Errors (`ModuleNotFoundError`)**
+**Problem**: Python failed to locate modules when executing the entry point.
+
+**Solution**:
+- Ensured correct **package structure** and added `__init__.py` files.
+- Used the correct reference in `setup.py`: `"first_project_run = first_project.TaskApp:TaskApp.main_menu"`.
+- Reinstalled the package using `pip install -e .`.
+
+### **2. Incorrect Entry Point in `setup.py` (`TypeError: 'str' object is not callable`)**
+**Problem**: The function specified in `setup.py` was incorrect, leading to runtime errors.
+
+**Solution**:
+- Replaced `"TaskApp:__main__"` with `"first_project.TaskApp:TaskApp.main_menu"` to correctly reference the function.
+
+### **3. File Handling and Data Persistence Issues**
+**Problem**: Data was not being saved or loaded properly between sessions.
+
+**Solution**:
+- Used JSON file handling to store and retrieve user credentials and tasks.
+- Implemented exception handling to manage file read/write errors gracefully.
+
+---
+
+## **Conclusion**
+This Task Manager project provides a **structured and efficient way** for users to manage their tasks while ensuring data privacy through user authentication. By using **file handling**, tasks persist across sessions, allowing users to access their data anytime. The **interactive menu-driven interface** makes the application user-friendly and easy to navigate.
+
+Future enhancements could include:
+- Using a **database** (SQLite or PostgreSQL) for better data management.
+- Adding a **GUI** using Tkinter or Flask for a web-based version.
+- Implementing **task categorization and priority levels**.
+
+This project serves as a great introduction to Python programming, file handling, and authentication systems while solving a real-world problem effectively.
+
